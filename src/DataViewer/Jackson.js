@@ -1,14 +1,48 @@
 import React, { Fragment, Component } from 'react';
 import './DataViewer.css';
 
-class Jackson extends Component {
-  constructor(props) {
-    super(props);
+class ExpandableItem extends Component {
+  state = { visible: true };
+  toggleVisibility = () => this.setState({ visible: !this.state.visible });
+
+  init() {
+    return (
+      <div key={this.props.name} className='child'>
+        <a
+          className={
+            this.state.visible
+              ? 'mdi mdi-plus-box-outline mdi-24px box'
+              : 'mdi mdi-minus-box-outline mdi-24px box'
+          }
+          onClick={this.toggleVisibility}
+        ></a>
+        <span
+          className={
+            this.props.value.constructor === Array
+              ? 'mdi mdi-code-brackets mdi-24px brackets'
+              : 'mdi mdi-code-braces mdi-24px brackets'
+          }
+        ></span>
+        <span className='brackets'>{` ${this.props.name}`}</span>
+
+        {!this.state.visible ? (
+          <Fragment>
+            <Jackson value={this.props.value} />
+          </Fragment>
+        ) : null}
+      </div>
+    );
   }
 
-  state = { visible: true };
+  render() {
+    return <Fragment>{this.init()}</Fragment>;
+  }
+}
 
-  toggleVisibility = () => this.setState({ visible: !this.state.visible });
+class Jackson extends Component {
+  // state = { visible: true };
+
+  // toggleVisibility = () => this.setState({ visible: !this.state.visible });
 
   init() {
     if (this.props.value) {
@@ -16,32 +50,7 @@ class Jackson extends Component {
         // key is to over the wierd warning of "Each child in a list should have a unique 'key' prop."
         if (value) {
           if (value.constructor === Array || value.constructor === Object) {
-            return (
-              <div key={key} className='child'>
-                <a
-                  className={
-                    this.state.visible
-                      ? 'mdi mdi-plus-box-outline mdi-24px box'
-                      : 'mdi mdi-minus-box-outline mdi-24px box'
-                  }
-                  onClick={this.toggleVisibility}
-                ></a>
-                <span
-                  className={
-                    value.constructor === Array
-                      ? 'mdi mdi-code-brackets mdi-24px brackets'
-                      : 'mdi mdi-code-braces mdi-24px brackets'
-                  }
-                ></span>
-                <span className='brackets'>{` ${key}`}</span>
-
-                {!this.state.visible ? (
-                  <Fragment>
-                    <Jackson value={value} />
-                  </Fragment>
-                ) : null}
-              </div>
-            );
+            return <ExpandableItem name={key} value={value} />;
           }
           if (
             value.constructor === Boolean ||
