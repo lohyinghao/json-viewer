@@ -1,0 +1,36 @@
+.child {
+  margin-left: 24px;
+  margin-top: 12px;
+}
+
+.simple {
+  margin-left: 52px;
+  margin-top: 12px;
+}
+
+.box {
+  color: grey;
+}
+
+.brackets {
+  color: #01579b;
+}
+
+.boolean {
+  color: red;
+}
+
+.number {
+  color: green;
+}
+
+.string {
+  color: blue;
+}
+
+.viewerMargin {
+  margin-top: 2px;
+}
+.card-panel {
+  min-height: 500px;
+}
