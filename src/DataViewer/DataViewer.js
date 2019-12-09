@@ -13,7 +13,7 @@ class DataViewer extends Component {
           >
             <div className='col s12'>
               <div className='card-panel'>
-                <Jackson value={context.state.jsonInViewer} />
+                <Jackson name='JSON' value={context.state.jsonInViewer} />
               </div>
             </div>
           </div>

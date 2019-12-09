@@ -54,9 +54,7 @@ class JsonProvider extends Component {
       try {
         this.setState({
           ...this.state,
-          jsonInViewer: {
-            JSON: JSON.parse(this.state.json)
-          },
+          jsonInViewer: JSON.parse(this.state.json),
           inputMode: false
         });
       } catch (err) {
