@@ -48,7 +48,7 @@ class Jackson extends Component {
                   : 'mdi mdi-code-braces mdi-24px brackets'
               }
             ></span>
-            <span className='brackets'>{` ${key}`}</span>
+            <span>{` ${key}`}</span>
 
             {this.state.visible ? (
               <div className='expanded'>
