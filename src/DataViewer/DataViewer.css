@@ -3,9 +3,9 @@
   margin-top: 12px;
 }
 
-.simple {
-  margin-left: 52px;
-  margin-top: 12px;
+.expanded {
+  border-left: 1px solid lightgray;
+  margin-left: 12px;
 }
 
 .box {
@@ -17,20 +17,25 @@
 }
 
 .boolean {
-  color: red;
+  color: lightcoral;
 }
 
 .number {
-  color: green;
+  color: lightgreen;
 }
 
 .string {
-  color: blue;
+  color: lightskyblue;
+}
+
+.simple {
+  margin-left: 6px;
 }
 
 .viewerMargin {
   margin-top: 2px;
 }
+
 .card-panel {
   min-height: 500px;
 }

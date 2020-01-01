@@ -17,16 +17,17 @@ class Jackson extends Component {
       ) {
         return (
           <div key={key} className='child'>
-            <span className='simple'>{` ${key} : `}</span>
-            <span
+            <a
               className={
-                value.constructor === Boolean
+                (value.constructor === Boolean
                   ? 'boolean'
                   : value.constructor === Number
                   ? 'number'
-                  : 'string'
+                  : 'string') + ' mdi mdi-checkbox-blank simple'
               }
-            >{`${value}`}</span>
+            ></a>
+            <span>{` ${key} : `}</span>
+            <span>{`${value}`}</span>
           </div>
         );
       } else {
@@ -49,11 +50,13 @@ class Jackson extends Component {
             ></span>
             <span className='brackets'>{` ${key}`}</span>
 
-            {this.state.visible
-              ? Object.entries(this.props.value).map(([key, value]) => (
+            {this.state.visible ? (
+              <div className='expanded'>
+                {Object.entries(this.props.value).map(([key, value]) => (
                   <Jackson key={key} name={key} value={value} />
-                ))
-              : null}
+                ))}
+              </div>
+            ) : null}
           </div>
         );
       }
