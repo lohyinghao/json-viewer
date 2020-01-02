@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CopyOnClickHolder from './CopyOnClickHolder';
 import './DataViewer.css';
 
 class Jackson extends Component {
@@ -7,30 +8,13 @@ class Jackson extends Component {
   toggleVisibility = () => this.setState({ visible: !this.state.visible });
 
   init() {
-    const value = this.props.value;
+    let value = this.props.value;
     const key = this.props.name;
-    if (this.props.value && this.props.name) {
+    if (key) {
       if (
-        value.constructor === Boolean ||
-        value.constructor === Number ||
-        value.constructor === String
+        value &&
+        (value.constructor === Object || value.constructor === Array)
       ) {
-        return (
-          <div key={key} className='child'>
-            <a
-              className={
-                (value.constructor === Boolean
-                  ? 'boolean'
-                  : value.constructor === Number
-                  ? 'number'
-                  : 'string') + ' mdi mdi-checkbox-blank simple'
-              }
-            ></a>
-            <span>{` ${key} : `}</span>
-            <span>{`${value}`}</span>
-          </div>
-        );
-      } else {
         return (
           <div key={key} className='child'>
             <a
@@ -48,8 +32,7 @@ class Jackson extends Component {
                   : 'mdi mdi-code-braces mdi-24px brackets'
               }
             ></span>
-            <span>{` ${key}`}</span>
-
+            <CopyOnClickHolder name={key}></CopyOnClickHolder>
             {this.state.visible ? (
               <div className='expanded'>
                 {Object.entries(this.props.value).map(([key, value]) => (
@@ -57,6 +40,23 @@ class Jackson extends Component {
                 ))}
               </div>
             ) : null}
+          </div>
+        );
+      } else {
+        return (
+          <div key={key} className='child'>
+            <a
+              className={
+                (value || value === false || value === ''
+                  ? value.constructor === Boolean
+                    ? 'boolean'
+                    : value.constructor === Number
+                    ? 'number'
+                    : 'string'
+                  : 'null') + ' mdi mdi-checkbox-blank simple'
+              }
+            ></a>
+            <CopyOnClickHolder name={key} value={value}></CopyOnClickHolder>
           </div>
         );
       }

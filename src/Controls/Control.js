@@ -8,10 +8,7 @@ class Controls extends Component {
         {context => (
           <nav>
             <div className='nav-wrapper teal lighten-2'>
-              <a
-                href='#'
-                className='brand-logo right json-viewer-logo hide-on-small-only'
-              >
+              <a className='brand-logo right json-viewer-logo hide-on-small-only'>
                 Json Viewer
               </a>
               <ul id='nav-mobile' className='left hide-on-small-only'>

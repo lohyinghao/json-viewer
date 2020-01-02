@@ -21,19 +21,19 @@ class DataLoader extends Component {
               </form>
               <div className='col s12 right-align'>
                 <a
-                  class='waves-effect waves-light btn-small teal lighten-2'
+                  className='waves-effect waves-light btn-small teal lighten-2'
                   onClick={context.clear}
                 >
                   Clear
                 </a>
                 <a
-                  class='waves-effect waves-light btn-small teal lighten-2'
+                  className='waves-effect waves-light btn-small teal lighten-2'
                   onClick={context.formatJson}
                 >
                   Format Json
                 </a>
                 <a
-                  class='waves-effect waves-light btn-small teal lighten-2'
+                  className='waves-effect waves-light btn-small teal lighten-2'
                   onClick={context.removeWhiteSpacesJson}
                 >
                   Remove White Spaces
