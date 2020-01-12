@@ -7,7 +7,7 @@ class JsonProvider extends Component {
 
     this.state = {
       inputMode: true,
-      json: `{"threw":[{"course":472970619.69472694,"river":-1970074456.5413733,"cow":{"big":null,"big2":"","big3":123}},true,"exactly"],"nearer":"signal","has":true}` //`{"0": "Enter your json here"}`
+      json: `{"someDummyJson":[{"course":472970619.69472694,"river":-1970074456.5413733,"cow":{"big":null,"big2":"","big3":123}},true,"exactly"],"nearer":"signal","has":true}`
     };
 
     this.updateJson = e => {

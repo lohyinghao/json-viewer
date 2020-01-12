@@ -53,3 +53,14 @@
   background-color: rgb(32, 178, 170, 0.15);
   cursor: pointer;
 }
+
+.tooltiptext {
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}

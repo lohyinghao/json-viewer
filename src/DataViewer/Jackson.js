@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CopyOnClickHolder from './CopyOnClickHolder';
+import KeyValueHolder from './KeyValueHolder';
 import './DataViewer.css';
 
 class Jackson extends Component {
@@ -32,7 +32,7 @@ class Jackson extends Component {
                   : 'mdi mdi-code-braces mdi-24px brackets'
               }
             ></span>
-            <CopyOnClickHolder name={key}></CopyOnClickHolder>
+            <KeyValueHolder name={key}></KeyValueHolder>
             {this.state.visible ? (
               <div className='expanded'>
                 {Object.entries(this.props.value).map(([key, value]) => (
@@ -56,7 +56,7 @@ class Jackson extends Component {
                   : 'null') + ' mdi mdi-checkbox-blank simple'
               }
             ></a>
-            <CopyOnClickHolder name={key} value={value}></CopyOnClickHolder>
+            <KeyValueHolder name={key} value={value}></KeyValueHolder>
           </div>
         );
       }
